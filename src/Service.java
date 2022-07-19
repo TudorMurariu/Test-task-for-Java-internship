@@ -1,16 +1,21 @@
 public class Service {
-    private University uni;
+    private Repo repo;
+
+    public Service(Repo repo)
+    {
+        this.repo = repo;
+    }
 
     // creates a university with the given name
     public void create_uni(String name,String address)
     {
-        this.uni = new University(name, address);
+        repo.create_uni(name, address);
     }
 
     // checks if the university exists or not
     public boolean exists_uni()
     {
-        return this.uni != null;
+        return this.repo.get_uni() != null;
     }
 
     // returns the name of the university
@@ -18,7 +23,7 @@ public class Service {
     {
         if(!exists_uni())
             throw new Exception("The university does not exist!");
-        return uni.name;
+        return repo.get_uni().name;
     }
 
     // returns the adress of the university
@@ -26,7 +31,7 @@ public class Service {
     {
         if(!exists_uni())
             throw new Exception("The university does not exist!");
-        return uni.address;
+        return repo.get_uni().address;
     }
 
     // returns the number of faculties in the university
@@ -34,6 +39,6 @@ public class Service {
     {
         if(!exists_uni())
             throw new Exception("The university does not exist!");
-        return uni.faculties.size();
+        return repo.get_uni().faculties.size();
     }
 }

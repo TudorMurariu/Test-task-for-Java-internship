@@ -1,16 +1,15 @@
 import java.util.*;
 
-// kind of an repository in our case
 public class University {
     
     public String name;
     public String address;
-    public ArrayList<Faculty> faculties;
+    public ArrayList<String> faculties;
 
     // empty construnctor
     public University()
     {
-        faculties = new ArrayList<Faculty>();
+        faculties = new ArrayList<String>();
     }
 
     // construnctor
@@ -18,6 +17,6 @@ public class University {
     {
         this.name = name;
         this.address = address;
-        faculties = new ArrayList<Faculty>();
+        faculties = new ArrayList<String>();
     }
 }
