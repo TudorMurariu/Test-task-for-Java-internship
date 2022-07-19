@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// repository
 public class Repo {
 
     // class properties
@@ -72,5 +73,15 @@ public class Repo {
         groups.remove(index);
     }
 
+    // adds a student
+    public void add_student(Student s)
+    {
+        students.add(s);
+    }
 
+    // removes a student at a given index
+    public void remove_student(int index)
+    {
+        students.remove(index);
+    }
 }

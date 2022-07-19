@@ -118,7 +118,16 @@ public class Console {
 
                 case "6":
                     try{
+                        System.out.println("Name :");
+                        String name = cin.nextLine();
+                        System.out.println("Last name :");
+                        String last_name = cin.nextLine();
+                        System.out.println("Phone number :");
+                        String phone_number = cin.nextLine();
+                        System.out.println("Group name :");
+                        String group_name = cin.nextLine();
 
+                        srv.add_student(name, last_name, phone_number, group_name);
                     }
                     catch(Exception e){
                         System.out.println(e);
@@ -127,7 +136,12 @@ public class Console {
 
                 case "7":
                     try{
+                        System.out.println("Name :");
+                        String name = cin.nextLine();
+                        System.out.println("Last name :");
+                        String last_name = cin.nextLine();
 
+                        srv.remove_student(name, last_name);
                     }
                     catch(Exception e){
                         System.out.println(e);

@@ -151,4 +151,45 @@ public class Service {
             throw new Exception("There is no group with this name!");
         repo.remove_group(index);
     }
+
+    // adds a student
+    public void add_student(String name,String last_name,String phone_number,String group_name) throws Exception
+    {
+        // validate the phone number 
+        // we do not know from witch country it is so we can not put any other restrictions
+        String nums = "0123456789+-";
+        for(int i=0;i<phone_number.length();i++)
+            if(nums.indexOf(phone_number.charAt(i)) == -1)
+                throw new Exception("Incorect phone number!!!");
+
+        // two students can have the same names
+
+        // we serch for a group with the given group_name
+        ArrayList<Group> groups = repo.get_groups();
+        for(Group g : groups)
+            if(g.name.equals(group_name))
+            {
+                Student s = new Student(name, last_name, phone_number, group_name);
+                repo.add_student(s);
+                return;
+            }
+        throw new Exception("There is no group with this name!!!");
+    }
+
+    // removes a student
+    public void remove_student(String name,String last_name) throws Exception
+    {
+        ArrayList<Student> students = repo.get_students();
+        int index = -1;
+        for(int i=0;i<students.size();i++)
+            if(name.equals(students.get(i).name) && last_name.equals(students.get(i).last_name) )
+            {
+                index = i;
+                break;
+            }
+        if(index == -1)
+            throw new Exception("There is no student with this name!!!");
+        
+        repo.remove_student(index);
+    }
 }
