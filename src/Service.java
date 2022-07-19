@@ -192,4 +192,46 @@ public class Service {
         
         repo.remove_student(index);
     }
+
+    // returns all the specialities of a given faculty
+    public String get_speccialities(String faculty_name) throws Exception
+    {
+        ArrayList<Faculty> faculties = repo.get_faculties();
+        for(Faculty f : faculties)
+            if(f.name.equals(faculty_name))
+            {
+                String specs = new String();
+                for(String spec : f.name_of_specialties)
+                {
+                    specs += spec + " ";
+                }
+                return specs;
+            }
+        
+        throw new Exception("There is no faculty with this name!!!");
+    }
+
+    // returns all the groups of a given faculty
+    public String get_groups(String faculty_name) throws Exception
+    {
+        ArrayList<Faculty> faculties = repo.get_faculties();
+        for(Faculty f : faculties)
+            if(f.name.equals(faculty_name))
+            {
+                ArrayList<Group> all_groups = repo.get_groups();
+                String groups = new String();
+                for(Group g : all_groups)
+                    if(g.faculty_name.equals(faculty_name))
+                        groups += g.name + " ";
+                return groups;
+            }
+        
+        throw new Exception("There is no faculty with this name!!!");
+    }
+
+    // returns all the students of a given group
+    public String get_students(String group_name) throws Exception
+    {
+        return "";
+    }
 }

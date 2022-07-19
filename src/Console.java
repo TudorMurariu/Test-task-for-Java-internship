@@ -28,6 +28,7 @@ public class Console {
         System.out.println("11 - Display of all groups of a particular faculty. The name of the faculty is entered by the user");
         System.out.println("12 - Display of all students of a particular group. The group name is entered by the user");
         System.out.println("13 - Show all the functionalities in the console");
+        System.out.println("14 - Save in file");
         System.out.println("");
         System.out.println("");
 
@@ -212,27 +213,87 @@ public class Console {
                     }
                     break;
 
-                
-                case "13":
-                    System.out.println("");
-                    System.out.println("The functionalities are:");
-                    System.out.println("0 - exit the app");
-                    System.out.println("1 - Creation of the university");
-                    System.out.println("2 - Add a faculty");
-                    System.out.println("3 - Remove a faculty");
-                    System.out.println("4 - Add a group");
-                    System.out.println("5 - Remove a group");
-                    System.out.println("4 - Add a Students");
-                    System.out.println("5 - Remove a Students");
-                    System.out.println("6 - Displaying brief information about the university");
-                    System.out.println("7 - Display of complete information about the university (university data, faculty names, specialty names, group names, student information)");
-                    System.out.println("8 - Display of all specialties of a particular faculty. The name of the faculty is entered by the user");
-                    System.out.println("9 - Display of all groups of a particular faculty. The name of the faculty is entered by the user");
-                    System.out.println("10 - Display of all students of a particular group. The group name is entered by the user");
-                    System.out.println("11 - Show all the functionalities in the console");
-                    System.out.println("");
-                    System.out.println("");
+                case "10":
+                    try{
+                        System.out.println("Name :");
+                        String fac_name = cin.nextLine();
+                        
+                        String specs = srv.get_speccialities(fac_name);
+                        System.out.println("The specialities are:");
+                        System.out.println(specs);
+                        System.out.println();
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println(e);
+                    }
                     break;
+
+                case "11":
+                    try{
+                        System.out.println("Name :");
+                        String fac_name = cin.nextLine();
+
+                        String groups = srv.get_groups(fac_name);
+                        System.out.println("The groups  are:");
+                        System.out.println(groups);
+                        System.out.println();
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println(e);
+                    }
+                    break; 
+                    
+                case "12":
+                    try{
+                        System.out.println("Name :");
+                        String group_name = cin.nextLine();
+
+                        String students = srv.get_students(group_name);
+                        System.out.println("The students are:");
+                        System.out.println(students);
+                        System.out.println();
+
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println(e);
+                    }
+                    break;
+
+                case "13":
+                System.out.println("The functionalities are:");
+                System.out.println("0 - exit the app");
+                System.out.println("1 - Creation of the university");
+                System.out.println("2 - Add a faculty");
+                System.out.println("3 - Remove a faculty");
+                System.out.println("4 - Add a group");
+                System.out.println("5 - Remove a group");
+                System.out.println("6 - Add a Students");
+                System.out.println("7 - Remove a Students");
+                System.out.println("8 - Displaying brief information about the university");
+                System.out.println("9 - Display of complete information about the university (university data, faculty names, specialty names, group names, student information)");
+                System.out.println("10 - Display of all specialties of a particular faculty. The name of the faculty is entered by the user");
+                System.out.println("11 - Display of all groups of a particular faculty. The name of the faculty is entered by the user");
+                System.out.println("12 - Display of all students of a particular group. The group name is entered by the user");
+                System.out.println("13 - Show all the functionalities in the console");
+                System.out.println("14 - Save in file");
+                System.out.println("");
+                System.out.println("");
+                    break;
+
+                case "14":
+                    try{
+                       
+
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println(e);
+                    }
+                    break; 
+                
                 default:
                     System.out.println("There is no such command");
                     break;
