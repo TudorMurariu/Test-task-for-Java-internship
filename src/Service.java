@@ -232,6 +232,24 @@ public class Service {
     // returns all the students of a given group
     public String get_students(String group_name) throws Exception
     {
-        return "";
+        ArrayList<Group> groups = repo.get_groups();
+        for(Group g : groups)
+            if(g.name.equals(group_name))
+            {
+                ArrayList<Student> all_studs = repo.get_students();
+                String students = new String();
+                for(Student s : all_studs)
+                    if(s.group_name.equals(group_name))
+                        students += s.name + " ";
+                return students;
+            }
+        
+        throw new Exception("There is no group with this name!!!");
+    }
+
+    // exports the data to a file
+    public void Export(String file_name)
+    {
+        
     }
 }
