@@ -55,9 +55,46 @@ public class Service {
     {
         if(!exists_uni())
             throw new Exception("The university does not exist!");
+
+        ArrayList<Faculty> v = repo.get_faculties();
+        for(int i=0;i<v.size();i++)
+        {
+            // validate the name
+            if(v.get(i).name.equals(name))
+                throw new Exception("There is another faculty with this name!");
+
+            // validate the specs
+            for(String spec : v.get(i).name_of_specialties)
+                for(String spec2 : specs)
+                    if(spec.equals(spec2))
+                        throw new Exception(spec + " is owned by another faculty!");
+        }
+
         Faculty f = new Faculty();
         f.name = name;
         f.name_of_specialties = specs;
         repo.add_faculty(f);
     }
+
+    // removes a faculty
+    public void remove_faculty(String name) throws Exception
+    {
+        if(!exists_uni())
+            throw new Exception("The university does not exist!");
+
+        int index = -1;
+        ArrayList<Faculty> v = repo.get_faculties();
+        for(int i=0;i<v.size();i++)
+            if(v.get(i).name.equals(name))
+            {
+                index = i;
+                break;
+            }
+        if(index == -1)
+            throw new Exception("There is no such faculty!");
+
+        repo.remove_faculty(index);
+    }
+
+    
 }

@@ -41,5 +41,11 @@ public class Repo {
         uni.faculties.add(f.name);
     }
 
-    
+    // removes a faculty
+    public void remove_faculty(int index) 
+    {
+        uni.faculties.remove(index);
+        faculties.remove(index);
+    }
+
 }

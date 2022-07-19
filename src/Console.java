@@ -79,7 +79,9 @@ public class Console {
 
                 case "3":
                     try{
-
+                        System.out.println("Name :");
+                        String name = cin.nextLine();
+                        srv.remove_faculty(name);
                     }
                     catch(Exception e){
                         System.out.println(e);
