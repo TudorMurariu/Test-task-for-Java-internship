@@ -27,4 +27,19 @@ public class Repo {
     {
         return this.uni;
     }
+
+    // returns the faculties
+    public ArrayList<Faculty> get_faculties()
+    {
+        return faculties;
+    }
+
+    // adds a faculty
+    public void add_faculty(Faculty f)
+    {
+        faculties.add(f);
+        uni.faculties.add(f.name);
+    }
+
+    
 }

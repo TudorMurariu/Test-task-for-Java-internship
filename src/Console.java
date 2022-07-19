@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Console {
@@ -44,22 +45,88 @@ public class Console {
                     return;
                 
                 case "1":
-                    System.out.println("Name :");
-                    String name = cin.nextLine();
-                    System.out.println("Address :");
-                    String address = cin.nextLine();
-                    srv.create_uni(name, address);
+                    {
+                        System.out.println("Name :");
+                        String name = cin.nextLine();
+                        System.out.println("Address :");
+                        String address = cin.nextLine();
+                        srv.create_uni(name, address);
+                    }
                     break;
-                case "2":
 
+                case "2":
+                    try{
+                        System.out.println("Name :");
+                        String name = cin.nextLine();
+                        System.out.println("Enter the number of specialities :");
+                        int nr = cin.nextInt();
+                        cin.nextLine();
+                        
+                        ArrayList<String> specialities = new ArrayList<String>();
+                        System.out.println("Name of specialities , one on each line :");
+                        while(nr-- != 0)
+                        {
+                            System.out.println("Name :");
+                            specialities.add(cin.nextLine());
+                        }
+
+                        srv.add_faculty(name, specialities);
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
                     break;
-                
+
+                case "3":
+                    try{
+
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    break;
+
+                case "4":
+                    try{
+
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    break;
 
                 case "6":
                     try{
+                        System.out.println();
                         System.out.println("University name: " + srv.name_of_uni());
                         System.out.println("University address: " + srv.adress_of_uni());
                         System.out.println("Number of faculties: " + srv.number_of_faculties());
+                        System.out.println();
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    break;
+
+                case "7":
+                    try{
+                        System.out.println();
+                        System.out.println("University name: " + srv.name_of_uni());
+                        System.out.println("University address: " + srv.adress_of_uni());
+                        
+                        System.out.println("The faculties:");
+                        ArrayList<Faculty> faculties = srv.get_faculties();
+                        for(Faculty f : faculties)
+                        {
+                            System.out.println("Faculty name: " + f.name);
+                            System.out.println("Faculty specialties: ");
+                            for(String name : f.name_of_specialties)
+                                System.out.print(name + " ");
+                            System.out.println();
+                        }
+                        System.out.println();
+
+                        System.out.println();
                     }
                     catch(Exception e){
                         System.out.println(e);

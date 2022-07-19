@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Service {
     private Repo repo;
 
@@ -40,5 +42,22 @@ public class Service {
         if(!exists_uni())
             throw new Exception("The university does not exist!");
         return repo.get_uni().faculties.size();
+    }
+
+    // returns the faculties
+    public ArrayList<Faculty> get_faculties()
+    {
+        return repo.get_faculties();
+    }
+
+    // adds a faculty
+    public void add_faculty(String name, ArrayList<String> specs) throws Exception
+    {
+        if(!exists_uni())
+            throw new Exception("The university does not exist!");
+        Faculty f = new Faculty();
+        f.name = name;
+        f.name_of_specialties = specs;
+        repo.add_faculty(f);
     }
 }
