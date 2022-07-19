@@ -251,6 +251,9 @@ public class Service {
     // exports the data to a file
     public void Export(String file_name) throws Exception
     {
+        if(!file_name.endsWith(".txt"))
+            throw new Exception("The file must end in .txt!!!");
+
         // we create a file writer
         FileWriter file = new FileWriter(file_name);
 
@@ -283,15 +286,15 @@ public class Service {
         file.write("\n");
 
         // we print the students
-        System.out.println("The Students:");
+        file.write("The Students:\n");
         ArrayList<Student> students = repo.get_students();
         for(Student s : students)
         {
-            System.out.println("Name: " + s.name + "\n");
-            System.out.println("Last name: " + s.last_name + "\n");
-            System.out.println("Phone number: " + s.phone_number + "\n");
-            System.out.println("Group name: " + s.group_name + "\n");
-            System.out.println();
+            file.write("Name: " + s.name + "\n");
+            file.write("Last name: " + s.last_name + "\n");
+            file.write("Phone number: " + s.phone_number + "\n");
+            file.write("Group name: " + s.group_name + "\n");
+            file.write("\n");
         }
         file.write("\n");
 

@@ -1,0 +1,26 @@
+University name: ubb
+University address: 312 rew 342
+
+The faculties:
+Faculty name: fmi
+Faculty specialties: 
+mate info mate-info 
+Faculty name: fsega
+Faculty specialties: 
+info-economic contabilitate 
+
+The groups:
+Name : 215
+Speciality : info
+From the faculty : fmi
+
+Name : 214
+Speciality : mate-info
+From the faculty : fmi
+
+Name : 666
+Speciality : contabilitate
+From the faculty : fsega
+
+
+
