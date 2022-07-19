@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Service {
@@ -248,8 +249,53 @@ public class Service {
     }
 
     // exports the data to a file
-    public void Export(String file_name)
+    public void Export(String file_name) throws Exception
     {
-        
+        // we create a file writer
+        FileWriter file = new FileWriter(file_name);
+
+        file.write("University name: " + name_of_uni() + "\n");
+        file.write("University address: " + adress_of_uni() + "\n\n");
+
+        // first we print the faculties
+        file.write("The faculties:\n");
+        ArrayList<Faculty> faculties = repo.get_faculties();
+        for(Faculty f : faculties)
+        {
+            file.write("Faculty name: " + f.name + "\n");
+            file.write("Faculty specialties: \n");
+            for(String name : f.name_of_specialties)
+                file.write(name + " ");
+            file.write("\n");
+        }
+        file.write("\n");
+
+        // we print the group
+        file.write("The groups:\n");
+        ArrayList<Group> groups = repo.get_groups();
+        for(Group g : groups)
+        {
+            file.write("Name : " + g.name + "\n");
+            file.write("Speciality : " + g.speciality + "\n");
+            file.write("From the faculty : " + g.faculty_name + "\n");
+            file.write("\n");
+        }
+        file.write("\n");
+
+        // we print the students
+        System.out.println("The Students:");
+        ArrayList<Student> students = repo.get_students();
+        for(Student s : students)
+        {
+            System.out.println("Name: " + s.name + "\n");
+            System.out.println("Last name: " + s.last_name + "\n");
+            System.out.println("Phone number: " + s.phone_number + "\n");
+            System.out.println("Group name: " + s.group_name + "\n");
+            System.out.println();
+        }
+        file.write("\n");
+
+        // we close the file writer
+        file.close();
     }
 }
