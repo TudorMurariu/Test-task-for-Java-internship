@@ -96,5 +96,59 @@ public class Service {
         repo.remove_faculty(index);
     }
 
-    
+    // returns the groups
+    public ArrayList<Group> get_groups()
+    {
+        return repo.get_groups();
+    }
+
+    // returns the students
+    public ArrayList<Student> get_students()
+    {
+        return repo.get_students();
+    }
+
+    // adds a group
+    public void add_group(String name,String speciality,String faculty_name) throws Exception
+    {
+        ArrayList<Group> groups = repo.get_groups();
+        for(Group g : groups)
+            if(g.name.equals(name))
+                throw new Exception("There is another group with this name!");
+
+        ArrayList<Faculty> faculties = repo.get_faculties();
+        for(Faculty f : faculties)
+            if(f.name.equals(faculty_name))
+            {
+                for(String x : f.name_of_specialties)
+                    if(x.equals(speciality))
+                    {
+                        Group g = new Group();
+                        g.name = name;
+                        g.speciality = speciality;
+                        g.faculty_name = faculty_name;
+                        repo.add_group(g);
+                        return;
+                    }
+                throw new Exception("There is no such speciality in this faculty!");
+            }
+        throw new Exception("There is no faculty with this name");
+    }
+
+    // removes a group with the given name
+    public void remove_group(String name) throws Exception
+    {
+        int index = -1;
+        ArrayList<Group> groups = repo.get_groups();
+        for(int i=0;i<groups.size();i++)
+            if(groups.get(i).name.equals(name))
+            {
+                index = i;
+                break;
+            }
+        
+        if(index == -1)
+            throw new Exception("There is no group with this name!");
+        repo.remove_group(index);
+    }
 }

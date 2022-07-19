@@ -4,7 +4,7 @@ public class Repo {
 
     // class properties
     private ArrayList<Faculty> faculties;
-    private ArrayList<Group> grups;
+    private ArrayList<Group> groups;
     private ArrayList<Student> students;
     private University uni;
 
@@ -12,7 +12,7 @@ public class Repo {
     public Repo()
     {
         faculties = new ArrayList<Faculty>();
-        grups = new ArrayList<Group>();
+        groups = new ArrayList<Group>();
         students = new ArrayList<Student>();
     }
 
@@ -41,11 +41,36 @@ public class Repo {
         uni.faculties.add(f.name);
     }
 
-    // removes a faculty
+    // removes a faculty at a given index
     public void remove_faculty(int index) 
     {
         uni.faculties.remove(index);
         faculties.remove(index);
     }
+
+     // returns the groups
+     public ArrayList<Group> get_groups()
+     {
+         return groups;
+     }
+
+     // returns the students
+     public ArrayList<Student> get_students()
+     {
+         return students;
+     }
+
+    // adds a group
+    public void add_group(Group g)
+    {
+        groups.add(g);
+    }
+
+    // removes a group at a given index
+    public void remove_group(int index)
+    {
+        groups.remove(index);
+    }
+
 
 }
