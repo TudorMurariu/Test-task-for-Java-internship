@@ -14,9 +14,10 @@ public class University {
     }
 
     // construnctor
-    public University(String name)
+    public University(String name,String address)
     {
         this.name = name;
+        this.address = address;
         faculties = new ArrayList<Faculty>();
     }
 }

@@ -44,13 +44,28 @@ public class Console {
                     return;
                 
                 case "1":
+                    System.out.println("Name :");
                     String name = cin.nextLine();
-                    srv.create_uni(name);
+                    System.out.println("Address :");
+                    String address = cin.nextLine();
+                    srv.create_uni(name, address);
                     break;
                 case "2":
-                    
+
                     break;
                 
+
+                case "6":
+                    try{
+                        System.out.println("University name: " + srv.name_of_uni());
+                        System.out.println("University address: " + srv.adress_of_uni());
+                        System.out.println("Number of faculties: " + srv.number_of_faculties());
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    break;
+
                 default:
                     System.out.println("There is no such command");
                     break;
