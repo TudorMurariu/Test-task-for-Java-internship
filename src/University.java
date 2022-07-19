@@ -1,15 +1,22 @@
 import java.util.*;
 
+// kind of an repository in our case
 public class University {
     
     public String name;
     public String address;
-    public ArrayList<String> name_of_faculties;
+    public ArrayList<Faculty> faculties;
 
     // empty construnctor
     public University()
     {
-        name_of_faculties = new ArrayList<String>();
+        faculties = new ArrayList<Faculty>();
     }
 
+    // construnctor
+    public University(String name)
+    {
+        this.name = name;
+        faculties = new ArrayList<Faculty>();
+    }
 }
