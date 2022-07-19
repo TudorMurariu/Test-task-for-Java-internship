@@ -7,6 +7,7 @@ public class Service {
     public Service(Repo repo)
     {
         this.repo = repo;
+        test_exists_uni();
     }
 
     // creates a university with the given name
@@ -300,5 +301,12 @@ public class Service {
 
         // we close the file writer
         file.close();
+    }
+
+    // tests: 
+
+    private void test_exists_uni()
+    {
+        assert(exists_uni() == false);
     }
 }
